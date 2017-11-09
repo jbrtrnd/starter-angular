@@ -106,3 +106,11 @@ Using [Codelyzer](https://github.com/mgechev/codelyzer).
 npm run test
 ```
 Using [Karma](https://karma-runner.github.io/1.0/index.html) and [Jasmine](https://jasmine.github.io/).
+
+
+### Generate API documentation
+```shell
+npm run doc
+```
+Using [Compodoc](https://compodoc.github.io), configured to run in the ``src`` directory. Will generate the HTML
+documentation in the ``documentation`` directory. 

@@ -32,6 +32,10 @@
     {
       "project": "src/tsconfig.json",
       "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
     }
   ],
   "test": {
