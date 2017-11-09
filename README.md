@@ -64,13 +64,17 @@ Internally, the NPM command will launch the ``ng serve`` command.
     |-- scss/              --> Global SCSS files
     |-- index.html         --> HTML entry point
     |-- main.ts            --> Angular entry point
+    |-- test.ts            --> Angular testing entry point
     |-- polyfills.ts       --> Polyfills
     |-- tsconfig.json      --> Application typescript config
+    |-- tsconfig.spec.json --> Application typescript config in test env.
 |-- .angular-cli.json      --> Angular config
 |-- .gitignore         
+|-- karma.conf.js          --> Karma configuration file          
 |-- package.json       
 |-- package-lock.json  
-|-- tsconfig.json           --> Parent typescript config
+|-- tsconfig.json          --> Parent typescript config
+|-- tslint..json           --> TSlint configuration file
 ```
 
 ## Build
@@ -96,3 +100,9 @@ npm run style
 ```
 Using [Codelyzer](https://github.com/mgechev/codelyzer).
 
+
+### Running tests
+```shell
+npm run test
+```
+Using [Karma](https://karma-runner.github.io/1.0/index.html) and [Jasmine](https://jasmine.github.io/).

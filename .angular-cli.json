@@ -16,8 +16,10 @@
       ],
       "index": "index.html",
       "main": "main.ts",
-      "tsconfig": "tsconfig.json",
       "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "testTsconfig": "tsconfig.spec.json",
       "prefix": "starter",
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -31,5 +33,10 @@
       "project": "src/tsconfig.json",
       "exclude": "**/node_modules/**"
     }
-  ]
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  }
 }
