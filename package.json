@@ -4,6 +4,7 @@
   "description": "A project starter built with Angular",
   "scripts": {
     "start": "ng serve",
+    "style": "ng lint",
     "build": "ng build"
   },
   "repository": {
@@ -23,6 +24,8 @@
   "devDependencies": {
     "@angular/cli": "^1.5.0",
     "@angular/compiler-cli": "^5.0.1",
+    "codelyzer": "^4.0.1",
+    "tslint": "^5.8.0",
     "typescript": "^2.4.2"
   },
   "dependencies": {

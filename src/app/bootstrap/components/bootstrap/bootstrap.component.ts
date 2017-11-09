@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'bootstrap',
+    selector: 'starter-bootstrap',
     templateUrl: 'bootstrap.component.html'
 })
 export class BootstrapComponent { }

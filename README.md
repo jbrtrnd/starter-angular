@@ -77,9 +77,21 @@ Internally, the NPM command will launch the ``ng serve`` command.
 At the root directory of the starter, run :
 
 ```shell
-npm build
+npm run build
 ```
 
 Internally, the NPM command will launch the ``ng build`` command.
 
 Will produce the built files in the ``build`` directory.
+
+
+## Automated NPM tasks
+
+All the following tasks must be ran at root directory of the starter.
+
+### Checking code style
+```shell
+npm run style
+```
+Using [Codelyzer](https://github.com/mgechev/codelyzer).
+

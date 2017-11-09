@@ -18,12 +18,18 @@
       "main": "main.ts",
       "tsconfig": "tsconfig.json",
       "polyfills": "polyfills.ts",
-      "prefix": "app",
+      "prefix": "starter",
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
+    }
+  ],
+  "lint": [
+    {
+      "project": "src/tsconfig.json",
+      "exclude": "**/node_modules/**"
     }
   ]
 }
