@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "starter-angular"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "build",
+      "assets": [
+        "assets"
+      ],
+      "scripts": [],
+      "styles": [
+        "scss/style.scss"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "tsconfig": "tsconfig.json",
+      "polyfills": "polyfills.ts",
+      "prefix": "app",
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ]
+}
