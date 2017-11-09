@@ -53,23 +53,24 @@ Internally, the NPM command will launch the ``ng serve`` command.
 ### Base project structure
 
 ```
-|-- node_modules/         --> Javascript dependencies installed from NPM
-|-- src/                  --> Sources files root directory
-    |-- app/              --> Modules files root directory
-        |-- bootstrap/    --> Bootstrap module
-        |-- app.module.ts --> App module (first loaded module by the Angular app)
-    |-- assets/           --> Assets directory (images etc...)
-    |-- environments/     --> Application environments files
-    |-- scss/             --> Global SCSS files
-    |-- index.html        --> HTML entry point
-    |-- main.ts           --> Angular entry point
-    |-- polyfills.ts      --> Polyfills
-    |-- tsconfig.json     --> Application typescript config
-|-- .angular-cli.json     --> Angular config
+|-- node_modules/          --> Javascript dependencies installed from NPM
+|-- src/                   --> Sources files root directory
+    |-- app/               --> Modules files root directory
+        |-- starter/       --> Root directory for Starter modules
+            |-- bootstrap/ --> Bootstrap module
+        |-- app.module.ts  --> App module (first loaded module by the Angular app)
+    |-- assets/            --> Assets directory (images etc...)
+    |-- environments/      --> Application environments files
+    |-- scss/              --> Global SCSS files
+    |-- index.html         --> HTML entry point
+    |-- main.ts            --> Angular entry point
+    |-- polyfills.ts       --> Polyfills
+    |-- tsconfig.json      --> Application typescript config
+|-- .angular-cli.json      --> Angular config
 |-- .gitignore         
 |-- package.json       
 |-- package-lock.json  
-|-- tsconfig.json      --> Parent typescript config
+|-- tsconfig.json           --> Parent typescript config
 ```
 
 ## Build
