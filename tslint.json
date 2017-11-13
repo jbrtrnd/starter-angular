@@ -119,13 +119,13 @@
     "directive-selector": [
       true,
       "attribute",
-      ["starter"],
+      ["starter", "example"],
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      ["starter"],
+      ["starter", "example"],
       "kebab-case"
     ],
     "use-input-property-decorator": true,

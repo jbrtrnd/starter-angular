@@ -57,7 +57,6 @@ Internally, the NPM command will launch the ``ng serve`` command.
 |-- src/                   --> Sources files root directory
     |-- app/               --> Modules files root directory
         |-- starter/       --> Root directory for Starter modules
-            |-- bootstrap/ --> Bootstrap module
         |-- app.module.ts  --> App module (first loaded module by the Angular app)
     |-- assets/            --> Assets directory (images etc...)
     |-- environments/      --> Application environments files
