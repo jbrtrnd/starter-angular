@@ -4,6 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ExampleModule } from 'app/example/example.module';
 import { RootComponent } from 'app/example/components/root/root.component';
 
+/**
+ * Application root module.
+ *
+ * @author Jules Bertrand <jules.brtrnd@gmail.com>
+ */
 @NgModule({
     imports: [
         BrowserModule,

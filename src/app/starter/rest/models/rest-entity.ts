@@ -5,6 +5,12 @@
  */
 export class RestEntity {
     /**
+     * Identifier.
+     *
+     * @type {number}
+     */
+    id: number;
+    /**
      * Creation date of the entity.
      *
      * @type {Date}
@@ -17,7 +23,14 @@ export class RestEntity {
      */
     updated: Date;
 
-    deserialize(data: any): void {
+    /**
+     * Hydrate the current class instance with an base Javascript object.
+     *
+     * @param {any} data
+     *
+     * @returns {void}
+     */
+    hydrate(data: any): void {
         Object.assign(this, data);
     }
 }

@@ -13,7 +13,10 @@ Be careful, this starter has a strong dependency with Angular, you should read t
 * [Overview](#overview)
     * [Base project structure](#base-project-structure)
 * [Build](#build)
-    
+* [Automated NPM tasks](#automated-npm-tasks)
+    * [Checking code style](#checking-code-style)
+    * [Running tests](#running-tests)
+    * [Generate API documentation](#generate-api-documentation)
 
 ## Getting Started
 
