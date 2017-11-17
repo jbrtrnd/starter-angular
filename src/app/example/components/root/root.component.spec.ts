@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RootComponent } from './root.component';
+import { StarterTableModule } from '../../../starter/table/table.module';
 
 describe('RootComponent', () => {
     let component: RootComponent;
@@ -11,7 +12,7 @@ describe('RootComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [ RootComponent ],
-            imports: [ HttpClientModule ]
+            imports: [ HttpClientModule, StarterTableModule ]
         })
         .compileComponents();
     }));

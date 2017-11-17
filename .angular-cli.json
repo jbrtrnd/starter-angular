@@ -42,5 +42,9 @@
     "karma": {
       "config": "./karma.conf.js"
     }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {}
   }
 }

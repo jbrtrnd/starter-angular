@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-import { RestService } from 'app/starter/rest/services/rest.service';
+import { RestService } from 'app/starter/rest/models/rest-service';
 import { Bar } from 'app/example/models/bar';
 import { RestSearchResponse } from 'app/starter/rest/models/rest-search-response';
 
@@ -16,9 +16,48 @@ import { RestSearchResponse } from 'app/starter/rest/models/rest-search-response
 })
 export class RootComponent implements OnInit {
 
-    constructor(protected http: HttpClient) {}
+    options: {
+        test: boolean,
+        obj: {
+            name: string
+        }
+    };
+
+    constructor(protected http: HttpClient) {
+        this.getRows = this.getRows.bind(this);
+    }
+
+    test() {
+        console.log('test');
+    }
+
+    getRows(callback) {
+        const service = new RestService<Bar>(this.http, 'http://localhost:8000/bar', Bar);
+        service.search().subscribe(
+            (response: RestSearchResponse<Bar>) => {
+                callback(response.rows);
+            }
+        );
+    }
 
     ngOnInit() {
+        this.options = {
+            test: true,
+            obj: {
+                name: 'hiih'
+            }
+        };
+
+        setTimeout(() => {
+            this.options.test = false;
+            this.options.obj.name = 'yolo';
+            setTimeout(() => {
+                this.options.test = false;
+                this.options.obj = {
+                    name: 'test'
+                }
+            }, 5000)
+        }, 5000)
         /*const service = new RestService<Bar>(this.http, 'http://localhost:8000/bar', Bar);
         service.search().subscribe(
             (response: RestSearchResponse<Bar>) => {
