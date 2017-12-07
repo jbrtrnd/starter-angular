@@ -18,7 +18,7 @@
       "rxjs",
       "rxjs/Rx"
     ],
-    "import-spacing": true,
+    "import-spacing": false,
     "indent": [
       true,
       "spaces",
@@ -125,7 +125,7 @@
     "component-selector": [
       true,
       "element",
-      ["starter", "example"],
+      ["starter"],
       "kebab-case"
     ],
     "use-input-property-decorator": true,

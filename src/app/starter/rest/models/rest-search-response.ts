@@ -1,4 +1,4 @@
-import { RestEntity } from 'app/starter/rest/models/rest-entity';
+import { RestEntity }   from 'app/starter/rest/models/rest-entity';
 import { HttpResponse } from '@angular/common/http';
 
 /**

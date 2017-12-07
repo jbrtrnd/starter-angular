@@ -1,8 +1,8 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable }               from 'rxjs/Observable';
+import { RestEntity }               from 'app/starter/rest/models/rest-entity';
+import { RestSearchResponse }       from 'app/starter/rest/models/rest-search-response';
 import 'rxjs/add/operator/map';
-import { RestSearchResponse } from 'app/starter/rest/models/rest-search-response';
-import { RestEntity } from 'app/starter/rest/models/rest-entity';
 
 /**
  * Generic service to access an entity REST api.
@@ -17,11 +17,10 @@ export class RestService<T extends RestEntity> {
      * @param {string}     url  URL to consume API.
      * @param {RestEntity} type The entity class to instantiate
      */
-    constructor(
-        protected http: HttpClient,
-        protected url: string,
-        protected type: new () => T
-    ) {}
+    constructor(protected http: HttpClient,
+                protected url: string,
+                protected type: new () => T) {
+    }
 
     /**
      * Search in the complete list of entities.
@@ -29,10 +28,10 @@ export class RestService<T extends RestEntity> {
      * @returns {Observable<RestSearchResponse<RestEntity>>}
      */
     search(): Observable<RestSearchResponse<T>> {
-        return this.http.get<T[]>(this.url, { observe: 'response' })
-                        .map((response: HttpResponse<T[]>) => {
-                            return new RestSearchResponse<T>(response, this.type);
-                        });
+        return this.http.get<T[]>(this.url, {observe: 'response'})
+                   .map((response: HttpResponse<T[]>) => {
+                       return new RestSearchResponse<T>(response, this.type);
+                   });
     }
 
     /**
@@ -45,12 +44,12 @@ export class RestService<T extends RestEntity> {
     get(id: number | string): Observable<T> {
         const url = this.url + '/' + id;
         return this.http.get<T>(url)
-                        .map((row: any) => {
-                            const entity = new this.type();
-                            entity.hydrate(row);
+                   .map((row: any) => {
+                       const entity = new this.type();
+                       entity.hydrate(row);
 
-                            return entity;
-                        });
+                       return entity;
+                   });
     }
 
     /**
@@ -62,14 +61,14 @@ export class RestService<T extends RestEntity> {
      */
     create(entity: T | any): Observable<T> {
         return this.http.post<T>(this.url, entity)
-                        .map((row: any) => {
-                            let instance = entity;
-                            if (!(entity instanceof this.type)) {
-                                instance = new this.type();
-                            }
-                            instance.hydrate(row);
-                            return instance;
-                        });
+                   .map((row: any) => {
+                       let instance = entity;
+                       if (!(entity instanceof this.type)) {
+                           instance = new this.type();
+                       }
+                       instance.hydrate(row);
+                       return instance;
+                   });
     }
 
     /**
@@ -82,14 +81,14 @@ export class RestService<T extends RestEntity> {
     update(entity: T | any): Observable<T> {
         const url = this.url + '/' + entity.id;
         return this.http.put<T>(url, entity)
-                        .map((row: any) => {
-                            let instance = entity;
-                            if (!(entity instanceof this.type)) {
-                                instance = new this.type();
-                            }
-                            instance.hydrate(row);
-                            return instance;
-                        });
+                   .map((row: any) => {
+                       let instance = entity;
+                       if (!(entity instanceof this.type)) {
+                           instance = new this.type();
+                       }
+                       instance.hydrate(row);
+                       return instance;
+                   });
     }
 
     /**

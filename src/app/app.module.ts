@@ -1,8 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule }         from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
-import { ExampleModule } from 'app/example/example.module';
-import { RootComponent } from 'app/example/components/root/root.component';
+import { BrowserModule }    from '@angular/platform-browser';
 
 /**
  * Application root module.
@@ -12,11 +10,9 @@ import { RootComponent } from 'app/example/components/root/root.component';
 @NgModule({
     imports: [
         BrowserModule,
-        HttpClientModule,
-        ExampleModule
+        HttpClientModule
     ],
-    bootstrap: [
-        RootComponent
-    ]
+    bootstrap: []
 })
-export class AppModule {}
+export class AppModule {
+}
