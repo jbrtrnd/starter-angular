@@ -28,7 +28,8 @@ export class RestService<T extends RestEntity> {
      * @returns {Observable<RestSearchResponse<RestEntity>>}
      */
     search(): Observable<RestSearchResponse<T>> {
-        return this.http.get<T[]>(this.url, {observe: 'response'})
+        return this.http
+                   .get<T[]>(this.url, {observe: 'response'})
                    .map((response: HttpResponse<T[]>) => {
                        return new RestSearchResponse<T>(response, this.type);
                    });
@@ -43,11 +44,11 @@ export class RestService<T extends RestEntity> {
      */
     get(id: number | string): Observable<T> {
         const url = this.url + '/' + id;
-        return this.http.get<T>(url)
+        return this.http
+                   .get<T>(url)
                    .map((row: any) => {
                        const entity = new this.type();
                        entity.hydrate(row);
-
                        return entity;
                    });
     }
@@ -60,7 +61,8 @@ export class RestService<T extends RestEntity> {
      * @returns {Observable<RestEntity>}
      */
     create(entity: T | any): Observable<T> {
-        return this.http.post<T>(this.url, entity)
+        return this.http
+                   .post<T>(this.url, entity)
                    .map((row: any) => {
                        let instance = entity;
                        if (!(entity instanceof this.type)) {
@@ -80,7 +82,8 @@ export class RestService<T extends RestEntity> {
      */
     update(entity: T | any): Observable<T> {
         const url = this.url + '/' + entity.id;
-        return this.http.put<T>(url, entity)
+        return this.http
+                   .put<T>(url, entity)
                    .map((row: any) => {
                        let instance = entity;
                        if (!(entity instanceof this.type)) {
