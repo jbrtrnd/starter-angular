@@ -28,8 +28,10 @@ import { UserService }               from 'app/user/services/user.service';
         // Initialize the authentication service
         {
             provide: APP_INITIALIZER,
-            useFactory: (authenticationService: AuthenticationService) => {
-                return () => authenticationService.initialize();
+            useFactory: (authenticationService: AuthenticationService): () => Promise<any> => {
+                return (): Promise<any> => {
+                    return authenticationService.initialize();
+                };
             },
             deps: [ AuthenticationService ],
             multi: true

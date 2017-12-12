@@ -1,9 +1,9 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable }             from '@angular/core';
-import { Observable, Subject }    from 'rxjs';
-import { User }                   from 'app/user/models/user';
-import { TokenService }           from 'app/user/services/token.service';
-import { UserService }            from 'app/user/services/user.service';
+import { HttpClient, HttpParams }      from '@angular/common/http';
+import { Injectable }                  from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { User }                        from 'app/user/models/user';
+import { TokenService }                from 'app/user/services/token.service';
+import { UserService }                 from 'app/user/services/user.service';
 import 'rxjs/add/operator/map';
 
 /**
@@ -16,9 +16,9 @@ export class AuthenticationService {
     /**
      * The current user.
      *
-     * @type {Subject<User>}
+     * @type {BehaviorSubject<User>}
      */
-    protected user: Subject<User>;
+    protected user: BehaviorSubject<User>;
 
     /**
      * Constructor.
@@ -30,23 +30,32 @@ export class AuthenticationService {
     constructor(protected http: HttpClient,
                 protected tokenService: TokenService,
                 protected userService: UserService) {
-        this.user = new Subject();
+        this.user = new BehaviorSubject(null);
     }
 
     /**
      * Initialize the service if a token is already present.
+     *
+     * @returns {Promise<any>}
      */
-    initialize(): void {
-        const token = this.tokenService.get();
-        if (token) {
-            this.validate(token).subscribe((data: any) => {
-                this.userService
-                    .get(data.user)
-                    .subscribe((user: User) => {
-                        this.user.next(user);
-                    });
-            });
-        }
+    initialize(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            const token = this.tokenService.get();
+            if (token) {
+                this.validate(token).subscribe((data: any) => {
+                    this.userService
+                        .get(data.user)
+                        .subscribe((user: User) => {
+                            this.user.next(user);
+                            resolve();
+                        });
+                }, () => {
+                    resolve();
+                });
+            } else {
+                resolve();
+            }
+        });
     }
 
     /**
