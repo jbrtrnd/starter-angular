@@ -25,11 +25,20 @@ export class RestService<T extends RestEntity> {
     /**
      * Search in the complete list of entities.
      *
+     * @param {Object} query Some query params.
+     *
      * @returns {Observable<RestSearchResponse<RestEntity>>}
      */
-    search(): Observable<RestSearchResponse<T>> {
+    search(query: Object = {}): Observable<RestSearchResponse<T>> {
+        let params: HttpParams = new HttpParams();
+        for (const key in query) {
+            if (query.hasOwnProperty(key)) {
+                params = params.set(key, query[key]);
+            }
+        }
+
         return this.http
-                   .get<T[]>(this.url, {observe: 'response'})
+                   .get<T[]>(this.url, {observe: 'response', params: params})
                    .map((response: HttpResponse<T[]>) => {
                        return new RestSearchResponse<T>(response, this.type);
                    });
@@ -39,13 +48,21 @@ export class RestService<T extends RestEntity> {
      * Get an entity by its primary key value.
      *
      * @param {number | string} id The entity identifier.
+     * @param {Object}          query Some query params.
      *
      * @returns {Observable<RestEntity>}
      */
-    get(id: number | string): Observable<T> {
+    get(id: number | string, query: Object = {}): Observable<T> {
+        let params: HttpParams = new HttpParams();
+        for (const key in query) {
+            if (query.hasOwnProperty(key)) {
+                params = params.set(key, query[key]);
+            }
+        }
+
         const url = this.url + '/' + id;
         return this.http
-                   .get<T>(url)
+                   .get<T>(url, {params: params})
                    .map((row: any) => {
                        const entity = new this.type();
                        entity.hydrate(row);
@@ -57,12 +74,20 @@ export class RestService<T extends RestEntity> {
      * Create an entity.
      *
      * @param {RestEntity | any} entity Entity to create.
+     * @param {Object}           query Some query params.
      *
      * @returns {Observable<RestEntity>}
      */
-    create(entity: T | any): Observable<T> {
+    create(entity: T | any, query: Object = {}): Observable<T> {
+        let params: HttpParams = new HttpParams();
+        for (const key in query) {
+            if (query.hasOwnProperty(key)) {
+                params = params.set(key, query[key]);
+            }
+        }
+
         return this.http
-                   .post<T>(this.url, entity)
+                   .post<T>(this.url, entity, {params: params})
                    .map((row: any) => {
                        let instance = entity;
                        if (!(entity instanceof this.type)) {
@@ -77,13 +102,21 @@ export class RestService<T extends RestEntity> {
      * Update an entity by its primary key value.
      *
      * @param {RestEntity | any} entity Entity to update.
+     * @param {Object}           query Some query params.
      *
      * @returns {Observable<RestEntity>}
      */
-    update(entity: T | any): Observable<T> {
+    update(entity: T | any, query: Object = {}): Observable<T> {
+        let params: HttpParams = new HttpParams();
+        for (const key in query) {
+            if (query.hasOwnProperty(key)) {
+                params = params.set(key, query[key]);
+            }
+        }
+
         const url = this.url + '/' + entity.id;
         return this.http
-                   .put<T>(url, entity)
+                   .put<T>(url, entity, {params: params})
                    .map((row: any) => {
                        let instance = entity;
                        if (!(entity instanceof this.type)) {
@@ -116,14 +149,15 @@ export class RestService<T extends RestEntity> {
      * Save an entity (create or update).
      *
      * @param {RestEntity | any} entity Entity to save.
+     * @param {Object}           query Some query params.
      *
      * @returns {Observable<RestEntity>}
      */
-    save(entity: T | any): Observable<T> {
+    save(entity: T | any, query: Object = {}): Observable<T> {
         if (entity.id) {
-            return this.update(entity);
+            return this.update(entity, query);
         } else {
-            return this.create(entity);
+            return this.create(entity, query);
         }
     }
 }
