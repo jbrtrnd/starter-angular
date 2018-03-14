@@ -1,7 +1,7 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable }               from 'rxjs/Observable';
-import { RestEntity }               from 'app/starter/rest/models/rest-entity';
-import { RestSearchResponse }       from 'app/starter/rest/models/rest-search-response';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { Observable }                           from 'rxjs/Observable';
+import { RestEntity }                           from 'app/starter/rest/models/rest-entity';
+import { RestSearchResponse }                   from 'app/starter/rest/models/rest-search-response';
 import 'rxjs/add/operator/map';
 
 /**
