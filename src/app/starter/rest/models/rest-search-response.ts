@@ -1,5 +1,5 @@
-import { RestEntity }   from 'app/starter/rest/models/rest-entity';
 import { HttpResponse } from '@angular/common/http';
+import { RestEntity } from 'app/starter/rest/models/rest-entity';
 
 /**
  * Response from a search API request.
@@ -29,11 +29,11 @@ export class RestSearchResponse<T extends RestEntity> {
      * @param {RestEntity}                 type     The entity class to instantiate.
      */
     constructor(response: HttpResponse<T[]>, type: new () => T) {
-        const rows  = response.body;
+        const rows = response.body;
         const total = response.headers.get('X-REST-TOTAL');
 
-        this.total = parseInt(total) || 0;
-        this.rows  = rows.map((row: any) => {
+        this.total = parseInt(total, 10) || 0;
+        this.rows = rows.map((row: any) => {
             const entity = new type();
             entity.hydrate(row);
 

@@ -6,5 +6,4 @@ import { NgModule } from '@angular/core';
  * @author Jules Bertrand <jules.brtrnd@gmail.com>
  */
 @NgModule({})
-export class StarterRestModule {
-}
+export class StarterRestModule {}

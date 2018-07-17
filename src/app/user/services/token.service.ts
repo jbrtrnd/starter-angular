@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/observable/of';
 
 /**
  * Token service store and read a JWT token.
