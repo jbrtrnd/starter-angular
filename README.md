@@ -69,13 +69,13 @@ Internally, the NPM command will launch the `ng serve` command.
     |-- polyfills.ts       --> Polyfills
     |-- tsconfig.json      --> Application typescript config
     |-- tsconfig.spec.json --> Application typescript config in test env.
-|-- .angular-cli.json      --> Angular config
 |-- .gitignore
-|-- karma.conf.js          --> Karma configuration file
+|-- .prettierrc
+|-- angular.json          --> Angular config
 |-- package.json
 |-- package-lock.json  
 |-- tsconfig.json          --> Parent typescript config
-|-- tslint..json           --> TSlint configuration file
+|-- tslint.json            --> TSlint configuration file
 ```
 
 ## Build
