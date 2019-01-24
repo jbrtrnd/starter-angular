@@ -1,7 +1,7 @@
-import { Injectable }  from '@angular/core';
-import { HttpClient }  from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { RestService } from 'app/starter/rest/models/rest-service';
-import { User }        from 'app/user/models/user';
+import { User } from 'app/user/models/user';
 
 /**
  * User service.

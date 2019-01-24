@@ -1,10 +1,10 @@
-import { HTTP_INTERCEPTORS }         from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { TokenInterceptor }          from 'app/user/interceptors/token.interceptor';
-import { UrlInterceptor }            from 'app/user/interceptors/url.interceptor';
-import { AuthenticationService }     from 'app/user/services/authentication.service';
-import { TokenService }              from 'app/user/services/token.service';
-import { UserService }               from 'app/user/services/user.service';
+import { TokenInterceptor } from 'app/user/interceptors/token.interceptor';
+import { UrlInterceptor } from 'app/user/interceptors/url.interceptor';
+import { AuthenticationService } from 'app/user/services/authentication.service';
+import { TokenService } from 'app/user/services/token.service';
+import { UserService } from 'app/user/services/user.service';
 
 /**
  * Manages users and authentication.
@@ -28,18 +28,17 @@ import { UserService }               from 'app/user/services/user.service';
         // Initialize the authentication service
         {
             provide: APP_INITIALIZER,
-            useFactory: (authenticationService: AuthenticationService): () => Promise<any> => {
+            useFactory: (authenticationService: AuthenticationService): (() => Promise<any>) => {
                 return (): Promise<any> => {
                     return authenticationService.initialize();
                 };
             },
-            deps: [ AuthenticationService ],
-            multi: true
+            deps: [AuthenticationService],
+            multi: true,
         },
         AuthenticationService,
         TokenService,
-        UserService
-    ]
+        UserService,
+    ],
 })
-export class UserModule {
-}
+export class UserModule {}

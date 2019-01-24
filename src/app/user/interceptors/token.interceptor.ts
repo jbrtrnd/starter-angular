@@ -1,7 +1,7 @@
-import { Injectable }                                           from '@angular/core';
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
-import { Observable }                                           from 'rxjs/Observable';
-import { TokenService }                                         from 'app/user/services/token.service';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { TokenService } from 'app/user/services/token.service';
+import { Observable } from 'rxjs';
 
 /**
  * Add the JWT token to the http request.
@@ -15,8 +15,7 @@ export class TokenInterceptor implements HttpInterceptor {
      *
      * @param {TokenService} tokenService The token service.
      */
-    constructor(protected tokenService: TokenService) {
-    }
+    constructor(protected tokenService: TokenService) {}
 
     /**
      * Interceptor.
@@ -32,8 +31,8 @@ export class TokenInterceptor implements HttpInterceptor {
         if (token) {
             update = {
                 setHeaders: {
-                    'Authorization': 'Bearer : ' + token
-                }
+                    Authorization: 'Bearer : ' + token,
+                },
             };
         }
 

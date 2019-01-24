@@ -1,54 +1,39 @@
 {
-  "name": "@jbrtrnd/starter-angular",
-  "version": "1.0.0",
-  "description": "A project starter built with Angular",
-  "scripts": {
-    "start": "ng serve",
-    "style": "ng lint",
-    "build": "ng build",
-    "test": "ng test",
-    "doc": "compodoc -p ./src/tsconfig.json"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jbrtrnd/starter-angular.git"
-  },
-  "author": {
-    "name": "Jules Bertrand",
-    "email": "jules.brtrnd@gmail.com",
-    "url": "https://github.com/jbrtrnd/"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jbrtrnd/starter-angular/issues"
-  },
-  "homepage": "https://github.com/jbrtrnd/starter-angular#readme",
-  "devDependencies": {
-    "@angular/cli": "^1.7.3",
-    "@angular/compiler-cli": "^5.2.8",
-    "@angular/language-service": "^5.2.8",
-    "@compodoc/compodoc": "^1.0.9",
-    "@types/jasmine": "^2.8.6",
-    "@types/node": "^8.9.5",
-    "codelyzer": "^4.2.1",
-    "jasmine-core": "^2.99.1",
-    "karma": "^1.7.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage-istanbul-reporter": "^1.4.2",
-    "karma-jasmine": "^1.1.1",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "tslint": "^5.9.1",
-    "typescript": "^2.7.2"
-  },
-  "dependencies": {
-    "@angular/common": "^5.1.0",
-    "@angular/compiler": "^5.1.0",
-    "@angular/core": "^5.1.0",
-    "@angular/http": "^5.1.0",
-    "@angular/platform-browser": "^5.1.0",
-    "@angular/platform-browser-dynamic": "^5.1.0",
-    "core-js": "^2.5.3",
-    "rxjs": "^5.5.5",
-    "zone.js": "^0.8.20"
-  }
+    "name": "starter-angular",
+    "version": "2.0.0",
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "lint": "ng lint",
+        "doc": "compodoc -p ./src/tsconfig.json"
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/animations": "^7.2.2",
+        "@angular/common": "^7.2.2",
+        "@angular/compiler": "^7.2.2",
+        "@angular/core": "^7.2.2",
+        "@angular/forms": "^7.2.2",
+        "@angular/http": "^7.2.2",
+        "@angular/platform-browser": "^7.2.2",
+        "@angular/platform-browser-dynamic": "^7.2.2",
+        "@angular/router": "^7.2.2",
+        "core-js": "^2.6.3",
+        "rxjs": "^6.3.3",
+        "tslib": "^1.9.0",
+        "zone.js": "^0.8.29"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^0.12.3",
+        "@angular/cli": "^7.2.3",
+        "@angular/compiler-cli": "^7.2.2",
+        "@angular/language-service": "^7.2.2",
+        "@compodoc/compodoc": "^1.1.7",
+        "@types/node": "~8.9.4",
+        "codelyzer": "^4.5.0",
+        "ts-node": "~5.0.1",
+        "tslint": "~5.9.1",
+        "typescript": "^3.2.4"
+    }
 }

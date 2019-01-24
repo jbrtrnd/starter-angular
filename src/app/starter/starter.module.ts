@@ -1,4 +1,4 @@
-import { NgModule }          from '@angular/core';
+import { NgModule } from '@angular/core';
 import { StarterRestModule } from 'app/starter/rest/rest.module';
 
 /**
@@ -7,9 +7,6 @@ import { StarterRestModule } from 'app/starter/rest/rest.module';
  * @author Jules Bertrand <jules.brtrnd@gmail.com>
  */
 @NgModule({
-    imports: [
-        StarterRestModule,
-    ]
+    imports: [StarterRestModule],
 })
-export class StarterModule {
-}
+export class StarterModule {}
